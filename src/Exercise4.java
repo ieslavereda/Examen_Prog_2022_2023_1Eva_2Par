@@ -13,13 +13,13 @@ public class Exercise4 {
         int row, col, min, max;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Give me the number of rows:");
+        System.out.print("Give me the number of rows: ");
         row = sc.nextInt();
-        System.out.println("Give me the number of columns:");
+        System.out.print("Give me the number of columns: ");
         col = sc.nextInt();
-        System.out.println("Give me the lower random limit:");
+        System.out.print("Give me the lower random limit: ");
         min = sc.nextInt();
-        System.out.println("Give me the upper random limit:");
+        System.out.print("Give me the upper random limit: ");
         max = sc.nextInt();
 
         int[][] matrix = new int[row][col];

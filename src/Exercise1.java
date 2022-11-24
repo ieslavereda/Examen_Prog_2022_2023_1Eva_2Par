@@ -7,9 +7,9 @@ public class Exercise1 {
         int row,col;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Give me the number of rows:");
+        System.out.print("Give me the number of rows: ");
         row = sc.nextInt();
-        System.out.println("Give me the number of columns:");
+        System.out.print("Give me the number of columns: ");
         col = sc.nextInt();
 
         String[][] array = new String[row][col];
@@ -17,12 +17,12 @@ public class Exercise1 {
         show(array);
         int sum = sumArray(array);
         System.out.println("The sum is: " + sumArray(array));
-        System.out.println("The average is: " + avgArray(sum, array.length*array[0].length));
+        System.out.println("The average is: " + avgArray(sum, row*col));
 
     }
 
     private static double avgArray(int sum, int length) {
-        return (double) sum/length;
+        return (length != 0)  ? (double) sum/length : 0;
     }
 
     private static int sumArray(String[][] array) {

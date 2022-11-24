@@ -15,7 +15,7 @@ public class Exercise3 {
                 {"Anne", "1.69"}
         };
 
-        System.out.println("Person's name to search: ");
+        System.out.print("Person's name to search: ");
         String name  = sc.next();
         bubble(heights);
         show(heights);
