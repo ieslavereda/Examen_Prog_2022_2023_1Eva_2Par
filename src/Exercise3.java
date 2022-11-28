@@ -19,8 +19,21 @@ public class Exercise3 {
         String name  = sc.next();
         bubble(heights);
         show(heights);
-        System.out.println("Recursively: " + recursiveSearch(heights, name));
-        System.out.println("Iteratively: " + iterativeSearch(heights, name));
+        System.out.println("Recursively -------");
+        int position =  recursiveSearch(heights, name);
+        if (position == -1)
+            System.out.println("The name \"" + name + "\" was not found.");
+        else
+            System.out.println(name + " " + heights[position][1]);
+
+        position = iterativeSearch(heights, name);
+
+        System.out.println("Iteratively ------- ");
+        if (position == -1)
+            System.out.println("The name \"" + name + "\" was not found.");
+        else
+            System.out.println(name + " " + heights[position][1]);
+
 
         sc.close();
     }
@@ -53,18 +66,18 @@ public class Exercise3 {
     }
 
     // Recursive
-    private static String recursiveSearch(String[][] heights, String name) {
+    private static int recursiveSearch(String[][] heights, String name) {
         return binarySearch(heights, 0, heights.length - 1, name);
     }
 
-    private static String binarySearch(String[][] heights, int i, int d, String name) {
+    private static int binarySearch(String[][] heights, int i, int d, String name) {
 
         int m = (d + i) / 2;
 
         if (heights[m][0].equals(name)) {
-            return heights[m][1];
+            return m;
         } else if (d < i) {
-            return "The name \"" + name + "\" was not found.";
+            return -1;
         } else if (heights[m][0].compareTo(name) < 0)
             return binarySearch(heights, i + 1, d, name);
         else
@@ -72,7 +85,7 @@ public class Exercise3 {
     }
 
     // Iterative
-    private static String iterativeSearch(String[][] heights, String name) {
+    private static int iterativeSearch(String[][] heights, String name) {
 
         int pos = 0;
 
@@ -80,8 +93,8 @@ public class Exercise3 {
             pos++;
 
         if (pos >= heights.length)
-            return "The name \"" + name + "\" was not found.";
+            return -1;
         else
-            return heights[pos][1];
+            return pos;
     }
 }
